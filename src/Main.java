@@ -1,6 +1,7 @@
 import collectionWorker.*;
 import helpers.FileNaming;
 import helpers.FindFiles;
+import helpers.MainHelper;
 import helpers.UserInputHandler;
 
 import java.io.*;
@@ -21,67 +22,15 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] path = new MainHelper().MainHelper();
 
-        String history = null;
-        String execute = null;
-        String collection = null;
+        String history = path[0];
+        String execute = path[1];
+        String collection = path[2];
 
-        try{
-            while (true){
-                writer.write("If u want to use CUSTOM name of files (default: history, script, collection.xml) type y, else type n: ");
-                writer.flush();
-                String[] fileNames = new String[] { "history", "script", "collection.xml" }; // Modify as needed
-                String[] customNames;
-                boolean breakPoint = false;
-
-                if(reader.readLine().equals("n")){
-                    Map<String, String> filesPath = FindFiles.FindFiles(fileNames);
-                    if(filesPath == null){
-                        System.out.println("Wrong data");
-                    }else {
-                        history = filesPath.get(fileNames[0]);
-                        execute = filesPath.get(fileNames[1]);
-                        collection = filesPath.get(fileNames[2]);
-                        break;
-                    }
-                }else{
-                    customNames = FileNaming.FileName(fileNames);
-                    System.out.println(Arrays.toString(customNames));
-                    for(String name : customNames){
-                        if(name.equals("") || name.equals(" ")){
-                         breakPoint = true;
-                        }
-                    }
-                    if(breakPoint){
-                        System.out.println("Wrong data");
-                    }else{
-                        Map<String, String> filesPath = FindFiles.FindFiles(customNames);
-                        if(filesPath == null){
-                            System.out.println("Wrong data");
-                        }else {
-                            history = filesPath.get(fileNames[0]);
-                            execute = filesPath.get(fileNames[1]);
-                            collection = filesPath.get(fileNames[2]);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            ParseXmlCommand parseXmlCommand = new ParseXmlCommand(collection);
-            parseXmlCommand.execute();
-
-            writer.write("Collection loaded from file: " + collection);
-            writer.newLine();
-            writer.flush();
-
-        }catch (IOException e){
-            System.out.println(e);
-        }
 
         HashMap<String, Command> commands = new HashMap<>();
+
         commands.put("show", new ShowCommand());
         commands.put("update", new UpdateCommand());
         commands.put("add", new AddCommand());
