@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+    <Movie>
+        <id>5125128</id>
+        <name>Name</name>
+        <director>
+            <name>Oleg</name>
+            <birthday>1990-05-01T00:00+04:00[Europe/Moscow]</birthday>
+            <height>23.0</height>
+            <eyeColor>BLUE</eyeColor>
+            <location>
+                <name>place</name>
+                <x>45.9</x>
+                <y>45.2</y>
+            </location>
+        </director>
+        <creationDate>2023-02-28T20:24:55.279606+03:00[Europe/Moscow]</creationDate>
+        <mpaaRating>PG</mpaaRating>
+        <coordinates>
+            <x>34.1</x>
+            <y>34.4</y>
+        </coordinates>
+        <oscarsCount>2</oscarsCount>
+        <goldenPalmCount>3</goldenPalmCount>
+        <tagline>whoo</tagline>
+    </Movie>
+</root>

@@ -1,6 +1,5 @@
 package collectionWorker;
 
-import fileManager.Command;
 import helpers.UserInputHandler;
 
 import java.io.BufferedReader;
@@ -13,21 +12,20 @@ import java.util.List;
  A class that represents the execute_script command, which executes all the instructions from a given file path.
  */
 public class ExecuteCommand implements Command {
+    UserInputHandler userInputHandler;
     public static String info = "execute_script command:\n" +
             "   This command will execute all instructions from script\n" +
             "   Note: script should be without errors\n";
     private final String filePath;
-    private final UserInputHandler userInputHandler;
 
     /**
      * Constructor for ExecuteCommand class.
      * @param filePath the path of the file to be read
-     * @param userInputHandler UserInputHandler object
      */
 
-    public ExecuteCommand(String filePath, UserInputHandler userInputHandler) {
+    public ExecuteCommand(String filePath) {
         this.filePath = filePath;
-        this.userInputHandler = userInputHandler;
+
     }
 
 
@@ -41,7 +39,7 @@ public class ExecuteCommand implements Command {
             List<String> commands = readCommandsFromFile(filePath);
             for (String command : commands) {
                 System.out.println(command);
-                userInputHandler.toExecute(command);
+                UserInputHandler.toExecute(command);
             }
         } catch (IOException e){
             System.out.println(e);

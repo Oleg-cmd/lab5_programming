@@ -1,9 +1,5 @@
 package collectionWorker;
 
-import fileManager.Command;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -19,22 +15,16 @@ public class HelpCommand implements Command {
     static String[] instructions = new String[]{AddCommand.info, AddIfMaxCommand.info, ClearCommand.info, ClearHistoryCommand.info, ExecuteCommand.info, ExitCommand.info, FilterByNameCommand.info, info, InfoCommand.info, PrintMpaaCommand.info, RemoveByIdCommand.info, RemoveLowerCommand.info, SaveCommand.info, ShowCommand.info, ShowHistoryCommand.info, UpdateCommand.info};
 
     private final HashMap<String, Command> commands;
-    private final BufferedWriter writer;
-    private final BufferedReader reader;
 
 
     /**
      * Constructs a HelpCommand with a HashMap of commands, a BufferedWriter and a BufferedReader.
      *
      * @param commands the HashMap of commands to display
-     * @param writer the BufferedWriter to display the output
-     * @param reader the BufferedReader to read the user input
      */
 
-    public HelpCommand(HashMap<String, Command> commands, BufferedWriter writer, BufferedReader reader) {
+    public HelpCommand(HashMap<String, Command> commands) {
         this.commands = commands;
-        this.writer = writer;
-        this.reader = reader;
     }
 
 
@@ -52,16 +42,19 @@ public class HelpCommand implements Command {
                 writer.write(commandName);
                 writer.newLine();
             }
+            writer.write("Type %more% if u want to see additional information:");
+            writer.newLine();
             writer.flush();
-            System.out.println("Type %more% if u want to see additional information");
+
             String text = reader.readLine().trim();
             if(text.equals("more")){
                 for(String s : instructions){
-                    System.out.println(s);
+                    writer.write(s);
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e);
+//            e.printStackTrace();
         }
     }
 }

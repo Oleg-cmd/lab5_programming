@@ -1,2 +1,1 @@
-show
-show
+execute_script ./src/script2

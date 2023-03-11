@@ -1,11 +1,8 @@
 package collectionWorker;
 
 import java.io.File;
-import java.util.HashSet;
+import java.io.IOException;
 
-
-import fileManager.Command;
-import model.Movie;
 
 /**
  The InfoCommand class implements the Command interface and represents the "info" command that prints
@@ -15,15 +12,13 @@ import model.Movie;
 public class InfoCommand implements Command {
     public static String info = "info command:\n" +
             "   This command will print all info about collection (type, size, etc)\n";
-    private final HashSet<Movie> myCollection;
+
 
     /**
      * Creates a new instance of the InfoCommand class with the specified HashSet of models.
-     *
-     * @param myCollection the HashSet that contains all the models in the collection.
      */
-    public InfoCommand(HashSet<Movie> myCollection) {
-        this.myCollection = myCollection;
+    public InfoCommand() {
+
     }
 
     /**
@@ -32,16 +27,21 @@ public class InfoCommand implements Command {
      */
 
     @Override
-    public void execute() {
+    public void execute(){
         File file = new File("./src/collection.xml");
-        System.out.println("Type of myCollection: HashSet<Movie>");
-        System.out.println("Type of models in myCollection: Movie");
-        System.out.println("Number of models in myCollection: " + myCollection.size());
-        System.out.println("Name: "+ file.getName());
-        System.out.println("Path: "+ file.getAbsolutePath());
-        System.out.println("Size: "+ file.length());
-        System.out.println("Writeable: "+ file.canWrite());
-        System.out.println("Readable: "+ file.canRead());
+        try{
+            writer.write("Type of myCollection: HashSet<Movie>\n");
+            writer.write("Type of models in myCollection: Movie\n");
+            writer.write("Number of models in myCollection: " + collectionManager.getMovies().size() + "\n");
+            writer.write("Name: "+ file.getName()+ "\n");
+            writer.write("Path: "+ file.getAbsolutePath()+ "\n");
+            writer.write("Size: "+ file.length()+ "\n");
+            writer.write("Writeable: "+ file.canWrite()+ "\n");
+            writer.write("Readable: "+ file.canRead()+ "\n");
+        }catch (IOException e){
+            System.out.println(e);
+        }
+
 
     }
 

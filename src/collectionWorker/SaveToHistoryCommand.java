@@ -1,7 +1,5 @@
 package collectionWorker;
 
-import fileManager.Command;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,10 +1,6 @@
 package collectionWorker;
 
-import fileManager.CollectionManager;
-import fileManager.Command;
-import model.Movie;
-
-import java.util.HashSet;
+import java.io.IOException;
 
 /**
  * This command clears all movies in the collection.
@@ -17,15 +13,13 @@ public class ClearCommand implements Command {
             "   This command will clear all movies in the collection.\n" +
             "   Note: there is no auto-save to file.";
 
-    private CollectionManager manager;
+
 
     /**
      * Constructs a ClearCommand with a CollectionManager.
-     *
-     * @param manager the CollectionManager instance to be used by the command
      */
-    public ClearCommand(CollectionManager manager) {
-        this.manager = manager;
+    public ClearCommand() {
+
     }
 
     /**
@@ -33,14 +27,21 @@ public class ClearCommand implements Command {
      */
     @Override
     public void execute() {
-        HashSet<Movie> movies = manager.getMovies();
+        try{
+            if (collectionManager.getMovies().isEmpty()) {
+                writer.write("The collection is already empty.");
+                return;
+            }else {
+                collectionManager.clearMovies();
+            }
 
-        if (movies.isEmpty()) {
-            System.out.println("The collection is already empty.");
-            return;
+            writer.write("All movies have been successfully removed from the collection.");
+        }catch (IOException e ){
+            System.out.println(e);
         }
 
-        movies.clear();
-        System.out.println("All movies have been successfully removed from the collection.");
+
+
+
     }
 }

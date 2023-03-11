@@ -2,8 +2,10 @@ package fileManager;
 
 import model.Movie;
 
+import java.time.ZonedDateTime;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Random;
 
 /**
  The CollectionManager class manages a collection of movies.
@@ -47,6 +49,16 @@ public class CollectionManager {
         movies.addAll(moviesToAdd);
     }
 
+    public Integer getRandomID(){
+        Random rand = new Random();
+        int upperbound = 9999999;
+        int int_random = rand.nextInt(upperbound);
+        return int_random;
+    }
+
+    public ZonedDateTime getNow(){
+        return ZonedDateTime.now();
+    }
 
     /**
      * Removes a movie from the collection managed by this CollectionManager object.
@@ -55,6 +67,9 @@ public class CollectionManager {
      */
     public boolean removeMovie(Movie movie) {
         return movies.remove(movie);
+    }
+    public boolean removeId(Integer id){
+        return movies.remove(getById(id));
     }
 
     /**
