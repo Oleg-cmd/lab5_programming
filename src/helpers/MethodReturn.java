@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.function.Consumer;
 
 public class MethodReturn {
-    private HashMap<String, Consumer<String>> setters;
-    private Movie movie;
+    private final HashMap<String, Consumer<String>> setters;
+    private final Movie movie;
 
     public MethodReturn(HashMap<String, Consumer<String>> setters, Movie movie) {
         this.setters = setters;

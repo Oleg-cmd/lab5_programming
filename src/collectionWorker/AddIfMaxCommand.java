@@ -42,7 +42,7 @@ public class AddIfMaxCommand implements Command {
             try{
                 MpaaRating movieRating = MpaaRating.valueOf(rate);
                 // If the new movie's rating is greater than or equal to the highest rated movie in the collection, prompt the user to add the new movie
-                if (Integer.compare(most.ordinal(), movieRating.ordinal()) >= 0) {
+                if (most.ordinal() >= movieRating.ordinal()) {
                     writer.write("OK, you can add the new movie.");
                     UserInputHandler.toExecute("add_xml " + xml);
                 } else {
@@ -80,7 +80,7 @@ public class AddIfMaxCommand implements Command {
             try {
                 movieRating = MpaaRating.valueOf(reader.readLine().trim());
                 // If the new movie's rating is greater than or equal to the highest rated movie in the collection, prompt the user to add the new movie
-                if (Integer.compare(most.ordinal(), movieRating.ordinal()) >= 0) {
+                if (most.ordinal() >= movieRating.ordinal()) {
                     writer.write("OK, you can add the new movie.");
 
                     UserInputHandler.toExecute("add");

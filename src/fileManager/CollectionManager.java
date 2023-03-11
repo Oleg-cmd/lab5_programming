@@ -12,7 +12,7 @@ import java.util.Random;
  */
 
 public class CollectionManager {
-    private HashSet<Movie> movies;
+    private final HashSet<Movie> movies;
 
     /**
      * Constructs a CollectionManager object with an empty collection of movies.

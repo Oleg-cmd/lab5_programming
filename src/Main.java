@@ -1,13 +1,8 @@
 import collectionWorker.*;
-import helpers.FileNaming;
-import helpers.FindFiles;
 import helpers.MainHelper;
 import helpers.UserInputHandler;
 
-import java.io.*;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  The main class for the application.

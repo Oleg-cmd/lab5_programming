@@ -3,7 +3,9 @@ package collectionWorker;
 import fileManager.XmlConverter;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  A command that saves a collection of movies to an XML file.

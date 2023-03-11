@@ -10,5 +10,5 @@ public enum Color {
     PURPLE, // Purple color
     BLUE, // Blue color
     WHITE, // White color
-    ORANGE; // Orange color
+    ORANGE // Orange color
 }

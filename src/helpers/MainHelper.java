@@ -38,8 +38,9 @@ public class MainHelper {
                     customNames = FileNaming.FileName(fileNames);
                     System.out.println(Arrays.toString(customNames));
                     for(String name : customNames){
-                        if(name.equals("") || name.equals(" ")){
+                        if (name.equals("") || name.equals(" ")) {
                             breakPoint = true;
+                            break;
                         }
                     }
                     if(breakPoint){

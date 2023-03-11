@@ -6,5 +6,5 @@ public enum MpaaRating {
     NC_17,
     R,
     PG_13,
-    PG;
+    PG
 }

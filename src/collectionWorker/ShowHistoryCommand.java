@@ -15,7 +15,7 @@ public class ShowHistoryCommand implements Command {
             "   This command will print to console 10 last commands that u entered to console\n" +
             "   note: commands will be without args\n";
     private static final int NUM_LINES_TO_SHOW = 10;
-    private String historyFilePath;
+    private final String historyFilePath;
 
     /**
      * Creates a new ShowHistoryCommand with the given history file path.

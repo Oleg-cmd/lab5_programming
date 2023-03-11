@@ -27,7 +27,7 @@ public class RemoveLowerCommand implements Command {
 
             try{
                 MpaaRating movieRating = MpaaRating.valueOf(rate);
-                if(Integer.compare(last.ordinal(), movieRating.ordinal()) <= 0){
+                if(last.ordinal() <= movieRating.ordinal()){
                     writer.write("Okey, u can do it");
                     collectionManager.removeMovie(sortedMovies.get(sortedMovies.size() - 1));
                     writer.write("The movie was removed");
@@ -60,7 +60,7 @@ public class RemoveLowerCommand implements Command {
 
             try{
                 MpaaRating movieRating = MpaaRating.valueOf(reader.readLine().trim());
-                if(Integer.compare(last.ordinal(), movieRating.ordinal()) <= 0){
+                if(last.ordinal() <= movieRating.ordinal()){
                     writer.write("Okey, u can do it");
                     collectionManager.removeMovie(sortedMovies.get(sortedMovies.size() - 1));
                     writer.write("The movie was removed");

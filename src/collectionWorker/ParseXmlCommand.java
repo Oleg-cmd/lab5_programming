@@ -1,11 +1,13 @@
 package collectionWorker;
 
 
+import fileManager.XmlToJava;
+
 /**
  A command that parses an XML file and adds the movies it contains to a collection.
  */
 public class ParseXmlCommand implements Command {
-    private String fileName;
+    private final String fileName;
 
     /**
      * Constructs a new instance of the {@code ParseXmlCommand} class with the specified XML to Java parser,
@@ -25,6 +27,6 @@ public class ParseXmlCommand implements Command {
 
     @Override
     public void execute() {
-        collectionManager.addAllMovies(XML_TO_JAVA.parseXml(fileName));
+        collectionManager.addAllMovies(XmlToJava.parseXml(fileName));
     }
 }

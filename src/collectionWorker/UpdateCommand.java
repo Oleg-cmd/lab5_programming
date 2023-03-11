@@ -2,8 +2,7 @@ package collectionWorker;
 
 import helpers.MethodReturn;
 import helpers.Worker;
-import model.*;
-
+import model.Movie;
 
 import java.io.IOException;
 import java.util.HashMap;

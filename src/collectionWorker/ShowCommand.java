@@ -1,9 +1,9 @@
 package collectionWorker;
 
+import model.Movie;
+
 import java.io.IOException;
 import java.util.HashSet;
-
-import model.Movie;
 
 /**
  The ShowCommand class implements the Command interface and represents the "show" command.

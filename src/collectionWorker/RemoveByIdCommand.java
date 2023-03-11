@@ -1,6 +1,5 @@
 package collectionWorker;
 
-import model.Movie;
 import java.io.IOException;
 
 /**

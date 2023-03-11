@@ -7,7 +7,7 @@ package collectionWorker;
 public class ExitCommand implements Command {
     public static String info = "exit command:\n" +
             "   This command will exit from program (no-autosave)\n";
-    private String history;
+    private final String history;
     /**
      * Executes the command to exit the program.
      * Clears the history and terminates the JVM with status code 0.

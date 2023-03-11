@@ -1,7 +1,6 @@
 package helpers;
 
 import collectionWorker.*;
-import collectionWorker.Command;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,7 +21,7 @@ public class UserInputHandler implements Command{
      *
      */
     public UserInputHandler(String history, HashMap<String, Command> commands) {
-        this.historyPath = history;
+        historyPath = history;
         UserInputHandler.commands = commands;
     }
 

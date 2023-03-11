@@ -1,10 +1,10 @@
 package collectionWorker;
 
+import model.Movie;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import model.Movie;
 
 /**
  FilterByNameCommand is a class that implements the Command interface and is responsible for filtering the movies in

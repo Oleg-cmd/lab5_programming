@@ -9,8 +9,8 @@ import java.io.IOException;
  The command is written to the history file as a single line of text.
  */
 public class SaveToHistoryCommand implements Command {
-    private String command;
-    private String historyFilePath;
+    private final String command;
+    private final String historyFilePath;
 
     /**
      * Constructs a new SaveToHistoryCommand object with the given command string and history file path.
