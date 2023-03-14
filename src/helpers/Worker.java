@@ -19,7 +19,6 @@ public class Worker implements Command {
      * @throws IOException If an I/O error occurs.
      */
 
-
     public static MethodReturn Code(Movie currentMovie) {
         Movie movie = Objects.requireNonNullElseGet(currentMovie, Movie::new);
 

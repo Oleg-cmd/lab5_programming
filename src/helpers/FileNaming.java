@@ -3,7 +3,9 @@ package helpers;
 import collectionWorker.Command;
 
 import java.io.IOException;
-
+/**
+ A helper class for renaming files.
+ */
 public class FileNaming implements Command {
     public static String[] FileName(String[] fileNames){
         String[] newFileNames = new String[fileNames.length];
@@ -22,5 +24,10 @@ public class FileNaming implements Command {
         return newFileNames;
     }
 
-    public void execute(){}
+    /**
+     * Executes the command to rename the files.
+     */
+    public void execute() {
+        // TODO: Implement file renaming
+    }
 }

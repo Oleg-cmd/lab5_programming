@@ -25,7 +25,6 @@ public class ExecuteCommand implements Command {
 
     public ExecuteCommand(String filePath) {
         this.filePath = filePath;
-
     }
 
 

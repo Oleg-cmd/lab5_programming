@@ -46,7 +46,11 @@ public class CollectionManager {
      */
 
     public void addAllMovies(Collection<Movie> moviesToAdd) {
-        movies.addAll(moviesToAdd);
+        for (Movie movie : moviesToAdd) {
+            if (!movies.contains(movie)) { // Check if movie is already in the set
+                movies.add(movie);
+            }
+        }
     }
 
     public Integer getRandomID(){

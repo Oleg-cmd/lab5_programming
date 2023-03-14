@@ -4,7 +4,17 @@ import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+        A helper class to search for files in the project directory and its subdirectories.
+ */
+
 public class FindFiles {
+    /**
+     * Searches for a file in the project directory and its parent directory.
+     *
+     * @param fileName the name of the file to search for
+     * @return the absolute path of the file if found, otherwise null
+     */
 public static String findFile(String fileName) {
     // Check in parent directory
     String filePath = "../" + fileName;
@@ -42,7 +52,11 @@ public static String findFile(String fileName) {
     // File not found
     return null;
 }
-
+    /**
+     Searches for multiple files in the project directory and its subdirectories.
+     @param fileNames an array of file names to search for
+     @return a map containing the file names and their absolute paths if found, otherwise null
+     */
     public static Map<String, String> FindFiles(String[] fileNames){
         Map<String, String> filesMap = new LinkedHashMap<>();
         for (String fileName : fileNames) {

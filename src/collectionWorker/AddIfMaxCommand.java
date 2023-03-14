@@ -22,13 +22,13 @@ public class AddIfMaxCommand implements Command {
             "   This command will add new Movie if Rating of Movie that u want to enter is higher or equals some movies in collection\n" +
             "   Note: uses classic Add if it's okey with handler";
 
+
     /**
      * Constructs an AddIfMaxCommand with the given collection and user input handler.
      *
      */
     public AddIfMaxCommand() {
     }
-
 
     public static void AddMaxArg(String rate, String xml){
         try {

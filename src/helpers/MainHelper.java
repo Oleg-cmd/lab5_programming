@@ -6,7 +6,14 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.Map;
 
+/**
+ * A helper class for the main application.
+ */
 public class MainHelper {
+    /**
+     * Main method for the MainHelper class.
+     * @return An array of Strings representing the file paths for the history, execute, and collection files.
+     */
     public String[] MainHelper(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));

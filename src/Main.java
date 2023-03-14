@@ -3,6 +3,7 @@ import helpers.MainHelper;
 import helpers.UserInputHandler;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  The main class for the application.
@@ -15,6 +16,8 @@ public class Main {
      *
      * @param args command line arguments
      */
+
+
     public static void main(String[] args) {
 
         String[] path = new MainHelper().MainHelper();
@@ -22,7 +25,6 @@ public class Main {
         String history = path[0];
         String execute = path[1];
         String collection = path[2];
-
 
         HashMap<String, Command> commands = new HashMap<>();
 
@@ -44,8 +46,10 @@ public class Main {
         commands.put("filter_by_name", new FilterByNameCommand());
         commands.put("clear_history", new ClearHistoryCommand(history));
 
-        UserInputHandler userInputHandler = new UserInputHandler(history, commands);
+        UserInputHandler userInputHandler = new UserInputHandler(history, commands, execute);
         new ClearHistoryCommand(history).execute();
+
+
         userInputHandler.start();
     }
 
