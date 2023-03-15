@@ -35,6 +35,10 @@ public class MainHelper {
                     Map<String, String> filesPath = FindFiles.FindFiles(fileNames);
                     if(filesPath == null){
                         System.out.println("Wrong data");
+                        System.out.println("Do u want to create new files? (y or n)");
+                        if(reader.readLine().equals("y")){
+                            CreateNew.Create();
+                        }
                     }else {
                         history = filesPath.get(fileNames[0]);
                         execute = filesPath.get(fileNames[1]);
@@ -52,10 +56,18 @@ public class MainHelper {
                     }
                     if(breakPoint){
                         System.out.println("Wrong data");
+                        System.out.println("Do u want to create new files?");
+                        if(reader.readLine().equals("y")){
+                            CreateNew.Create();
+                        }
                     }else{
                         Map<String, String> filesPath = FindFiles.FindFiles(customNames);
                         if(filesPath == null){
                             System.out.println("Wrong data");
+                            System.out.println("Do u want to create new files?");
+                            if(reader.readLine().equals("y")){
+                                CreateNew.Create();
+                            }
                         }else {
                             history = filesPath.get(fileNames[0]);
                             execute = filesPath.get(fileNames[1]);
