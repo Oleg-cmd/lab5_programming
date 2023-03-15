@@ -1,5 +1,6 @@
 package fileManager;
 
+import collectionWorker.Command;
 import model.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,7 +19,7 @@ import java.util.HashSet;
 /**
  The XmlToJava class provides a method to parse an XML file and convert its contents to a HashSet of Movie objects.
  */
-public class XmlToJava {
+public class XmlToJava implements Command {
     /**
      * A HashSet of Movie objects to store parsed XML data.
      */
@@ -76,7 +77,12 @@ public class XmlToJava {
                                     if (content != null) {
                                         switch(childNode.getNodeName()) {
                                             case "id":
-                                                movie.setId(Integer.parseInt(content));
+                                                try{
+                                                    movie.setId(Integer.parseInt(content));
+                                                }catch (NumberFormatException e){
+                                                    System.out.println("id is not valid, i generate new");
+                                                    movie.setId(collectionManager.getRandomID());
+                                                }
                                                 break;
                                             case "name":
                                                 movie.setName(content);
@@ -86,25 +92,51 @@ public class XmlToJava {
                                                 NodeList xList = coordinatesElement.getElementsByTagName("x");
                                                 NodeList yList = coordinatesElement.getElementsByTagName("y");
                                                 if (xList.getLength() > 0 && yList.getLength() > 0) {
-                                                    coordinates.setX(Float.parseFloat(xList.item(0).getTextContent()));
-                                                    coordinates.setY(Float.parseFloat(yList.item(0).getTextContent()));
+                                                    try{
+                                                        coordinates.setX(Float.parseFloat(xList.item(0).getTextContent()));
+                                                        coordinates.setY(Float.parseFloat(yList.item(0).getTextContent()));
+                                                    }catch (NumberFormatException e){
+                                                        System.out.println("incorrect coordinates");
+                                                        coordinates.setX(0);
+                                                        coordinates.setY(0);
+                                                    }
                                                     movie.setCoordinates(coordinates);
                                                 }
                                                 break;
                                             case "creationDate":
-                                                movie.setCreationDate(ZonedDateTime.parse(content));
+                                                try{
+                                                    movie.setCreationDate(ZonedDateTime.parse(content));
+                                                }catch (IllegalArgumentException e){
+                                                    System.out.println("illegal creation date");
+                                                    movie.setCreationDate(ZonedDateTime.now());
+                                                }
                                                 break;
                                             case "oscarsCount":
-                                                movie.setOscarsCount(Integer.parseInt(content));
+                                                try{
+                                                    movie.setOscarsCount(Integer.parseInt(content));
+                                                }catch (NumberFormatException e){
+                                                    System.out.println("not valid field");
+                                                    movie.setOscarsCount(0);
+                                                }
                                                 break;
                                             case "goldenPalmCount":
-                                                movie.setGoldenPalmCount(Integer.parseInt(content));
+                                                try{
+                                                    movie.setGoldenPalmCount(Integer.parseInt(content));
+                                                }catch (NumberFormatException e){
+                                                    System.out.println("not valid field");
+                                                    movie.setGoldenPalmCount(0);
+                                                }
                                                 break;
                                             case "tagline":
                                                 movie.setTagline(content);
                                                 break;
                                             case "mpaaRating":
-                                                movie.setMpaaRating(MpaaRating.valueOf(content));
+                                                try{
+                                                    movie.setMpaaRating(MpaaRating.valueOf(content));
+                                                }catch (IllegalArgumentException e){
+                                                    System.out.println("illegal rating");
+                                                    movie.setMpaaRating(MpaaRating.PG);
+                                                }
                                                 break;
                                             case "director":
                                                 Element directorElement = (Element) childNode;
@@ -114,13 +146,31 @@ public class XmlToJava {
                                                 }
                                                 NodeList heightElements = directorElement.getElementsByTagName("height");
                                                 if (heightElements.getLength() > 0) {
-                                                    director.setHeight(Double.parseDouble(heightElements.item(0).getTextContent()));
+                                                    try {
+                                                        director.setHeight(Double.parseDouble(heightElements.item(0).getTextContent()));
+                                                    }catch (NumberFormatException e){
+                                                        System.out.println("illegal height");
+                                                        director.setHeight(1);
+                                                    }
+
                                                 }
                                                 NodeList birth = directorElement.getElementsByTagName("birthday");
-                                                director.setBirthday(ZonedDateTime.parse(birth.item(0).getTextContent()));
+                                                try{
+                                                    director.setBirthday(ZonedDateTime.parse(birth.item(0).getTextContent()));
+                                                }catch (IllegalArgumentException e){
+                                                    System.out.println("illegal birthday");
+                                                    director.setBirthday(ZonedDateTime.now());
+                                                }
+
 
                                                 NodeList color = directorElement.getElementsByTagName("eyeColor");
-                                                director.setEyeColor(Color.valueOf(color.item(0).getTextContent()));
+                                                try{
+                                                    director.setEyeColor(Color.valueOf(color.item(0).getTextContent()));
+                                                }catch (IllegalArgumentException e){
+                                                    System.out.println("illegal color");
+                                                    director.setEyeColor(Color.GREEN);
+                                                }
+
 
                                                 NodeList location = directorElement.getElementsByTagName("location");
                                                 if (location.getLength() > 0) {
@@ -132,10 +182,21 @@ public class XmlToJava {
                                                     Double directorY = 0.0;
                                                     String directorLocationName = "";
                                                     if (xElements.getLength() > 0) {
-                                                        directorX = Double.parseDouble(xElements.item(0).getTextContent());
+                                                        try {
+                                                            directorX = Double.parseDouble(xElements.item(0).getTextContent());
+                                                        }catch (NumberFormatException e){
+                                                            System.out.println("illegal directorX");
+                                                            directorX = 1.0;
+                                                        }
+
                                                     }
                                                     if (yElements.getLength() > 0) {
-                                                        directorY = Double.parseDouble(yElements.item(0).getTextContent());
+                                                        try {
+                                                            directorY = Double.parseDouble(yElements.item(0).getTextContent());
+                                                        }catch (NumberFormatException e){
+                                                            System.out.println("illegal directorX");
+                                                            directorY = 1.0;
+                                                        }
                                                     }
                                                     if (name.getLength() > 0) {
                                                         directorLocationName = name.item(0).getTextContent();
@@ -144,10 +205,8 @@ public class XmlToJava {
                                                     directorLocation.setLocation(directorX, directorY, directorLocationName);
                                                     director.setLocation(directorLocation);
                                                 }
-
                                                 movie.setDirector(director);
                                                 break;
-
                                         }
                                     }else{
 //                                    System.out.println("");
@@ -167,5 +226,9 @@ public class XmlToJava {
             e.printStackTrace();
         }
         return movies;
+    }
+
+    @Override
+    public void execute() {
     }
 }

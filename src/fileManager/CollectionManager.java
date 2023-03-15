@@ -60,6 +60,7 @@ public class CollectionManager {
         return int_random;
     }
 
+
     public ZonedDateTime getNow(){
         return ZonedDateTime.now();
     }
