@@ -28,6 +28,7 @@ public class Main {
 
         HashMap<String, Command> commands = new HashMap<>();
 
+
         commands.put("show", new ShowCommand());
         commands.put("update", new UpdateCommand());
         commands.put("add", new AddCommand());
