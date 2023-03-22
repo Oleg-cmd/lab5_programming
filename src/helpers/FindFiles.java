@@ -16,8 +16,9 @@ public class FindFiles {
      * @return the absolute path of the file if found, otherwise null
      */
 public static String findFile(String fileName) {
+    String filePath;
     // Check in parent directory
-    String filePath = "../" + fileName;
+    filePath = "../" + fileName;
     File file = new File(filePath);
     if (file.exists()) {
         return file.getPath();
