@@ -18,7 +18,8 @@ public class AddIfMaxCommand implements Command {
     /**
      * A description of this command.
      */
-    public static String info = "add_max command:\n" +
+    public static String name = "add_max";
+    public static String info = name + " command:\n" +
             "   This command will add new Movie if Rating of Movie that u want to enter is higher or equals some movies in collection\n" +
             "   Note: uses classic Add if it's okey with handler";
 

@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class ExecuteCommand implements Command {
     UserInputHandler userInputHandler;
-    public static String info = "execute_script command:\n" +
+    public static String name = "execute_script";
+    public static String info = name + " command:\n" +
             "   This command will execute all instructions from script\n" +
             "   Note: script should be without errors\n";
     private final String filePath;

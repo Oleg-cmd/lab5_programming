@@ -11,7 +11,8 @@ import java.io.IOException;
  A command that saves a collection of movies to an XML file.
  */
 public class SaveCommand implements Command {
-    public static String info = "save command:\n" +
+    public static String name = "save";
+    public static String info = name + " command:\n" +
             "   This command will save your collection to xml file\n";
     private final String fileName;
 

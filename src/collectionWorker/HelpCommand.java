@@ -9,10 +9,13 @@ import java.util.HashMap;
  */
 
 public class HelpCommand implements Command {
-    public static String info = "help command\n" +
+    public static String name = "help";
+    public static String info = name + " command\n" +
             "   This command will give u all instructions of usage any function in this app\n";
 
-    static String[] instructions = new String[]{AddCommand.info, AddIfMaxCommand.info, ClearCommand.info, ClearHistoryCommand.info, ExecuteCommand.info, ExitCommand.info, FilterByNameCommand.info, info, InfoCommand.info, PrintMpaaCommand.info, RemoveByIdCommand.info, RemoveLowerCommand.info, SaveCommand.info, ShowCommand.info, ShowHistoryCommand.info, UpdateCommand.info};
+    public static String[] myFuncsName = new String[]{AddCommand.name, AddIfMaxCommand.name, ClearCommand.name, AddXmlCommand.name, ClearHistoryCommand.name, ExecuteCommand.name, ExitCommand.name, FilterByNameCommand.name, HelpCommand.name, InfoCommand.name, PrintMpaaCommand.name, RemoveByIdCommand.name, RemoveLowerCommand.name, SaveCommand.name, ShowCommand.name, ShowHistoryCommand.name, UpdateCommand.name};
+
+    public static String[] instructions = new String[]{AddCommand.info, AddIfMaxCommand.info, ClearCommand.info, ClearHistoryCommand.info, ExecuteCommand.info, ExitCommand.info, FilterByNameCommand.info, info, InfoCommand.info, PrintMpaaCommand.info, RemoveByIdCommand.info, RemoveLowerCommand.info, SaveCommand.info, ShowCommand.info, ShowHistoryCommand.info, UpdateCommand.info};
 
     private final HashMap<String, Command> commands;
 

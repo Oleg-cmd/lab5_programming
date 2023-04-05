@@ -6,7 +6,8 @@ import java.io.IOException;
  This class represents a command to remove a movie from a collection by its ID.
  */
 public class RemoveByIdCommand implements Command {
-    public static String info = "remove_by_id command:\n" +
+    public static String name = "remove_by_id";
+    public static String info = name + " command:\n" +
             "   This command will delete model with id that u entered (if this model exist)\n";
 
     /**

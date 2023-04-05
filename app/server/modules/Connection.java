@@ -9,7 +9,6 @@ public class Connection {
         ServerSocket serverSocket = new ServerSocket(1234);
         Socket clientSocket = serverSocket.accept();
         System.out.println("Client connected");
-
         return clientSocket;
     }
 }

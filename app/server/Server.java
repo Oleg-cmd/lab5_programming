@@ -9,7 +9,8 @@ public class Server {
     public static void run(){
         try{
             Socket socket = Connection.Connect();
-            ReadRequest.Processing(socket);
+            ReadRequest.Reading(socket);
+
         }catch (IOException e){
             System.out.println(e);
         }

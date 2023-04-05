@@ -2,6 +2,7 @@ package collectionWorker;
 
 
 public class AddXmlCommand implements Command {
+    public static String name = "add_xml";
     public static void AddingXML(String XMLPath){
 //      just adding to collection some models, no checking of fields
         ParseXmlCommand parseXmlCommand = new ParseXmlCommand(XMLPath);

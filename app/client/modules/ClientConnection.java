@@ -1,15 +1,13 @@
 package modules;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import helpers.CommandObject;
+
+import java.io.*;
 import java.net.Socket;
 
 public class ClientConnection implements Cliented{
     public static void ClientConnet() throws IOException {
         Socket socket = new Socket("localhost", 1234);
-
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
@@ -27,11 +25,18 @@ public class ClientConnection implements Cliented{
 
 // Create a new thread to continuously read from the user and send to the server
         Thread outputThread = new Thread(() -> {
-            BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
-            String userInput;
             try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+                String userInput;
                 while ((userInput = stdIn.readLine()) != null) {
-                    out.println(userInput);
+                    CommandObject toSend = OutputAnalyzer.Analyze(userInput);
+                    if (toSend != null) {
+                        objectOutputStream.writeObject(toSend);
+                        objectOutputStream.flush();
+                    } else {
+                        System.out.println("error in request body");
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -50,7 +55,7 @@ public class ClientConnection implements Cliented{
             e.printStackTrace();
         }
 
-        Cliented.print( "in, out is working correctly");
+//        Cliented.print( "in, out is working correctly");
 
         // Clean up
         in.close();

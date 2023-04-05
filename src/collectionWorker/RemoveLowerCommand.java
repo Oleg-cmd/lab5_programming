@@ -15,7 +15,8 @@ import java.util.List;
  that has a rating lower than or equal to the one entered by the user.
  */
 public class RemoveLowerCommand implements Command {
-    public static String info = "remove_lower command:\n" +
+    public static String name = "remove_lower";
+    public static String info = name + " command:\n" +
             "   This command will remove last movie that rating will be lower or equal urs\n";
 
     public static void RemoveArg(String rate){

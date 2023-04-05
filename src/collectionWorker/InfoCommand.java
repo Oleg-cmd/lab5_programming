@@ -10,7 +10,8 @@ import java.io.IOException;
  of models in the collection.
  */
 public class InfoCommand implements Command {
-    public static String info = "info command:\n" +
+    public static String name = "info";
+    public static String info = name + " command:\n" +
             "   This command will print all info about collection (type, size, etc)\n";
 
 

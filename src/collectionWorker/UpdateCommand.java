@@ -12,7 +12,8 @@ import java.util.function.Consumer;
  Represents an UpdateCommand which updates an element in a collection by its ID
  */
 public class UpdateCommand implements Command {
-    public static String info = "update command:\n" +
+    public static String name = "update";
+    public static String info = name + " command:\n" +
             "   This command will update an element by it's id\n" +
             "   Syntax:\n" +
             "       update\n";

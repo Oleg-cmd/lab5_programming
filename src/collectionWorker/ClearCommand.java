@@ -9,7 +9,8 @@ public class ClearCommand implements Command {
     /**
      * A brief description of the command.
      */
-    public static String info = "clear command:\n" +
+    public static String name = "clear";
+    public static String info = name + " command:\n" +
             "   This command will clear all movies in the collection.\n" +
             "   Note: there is no auto-save to file.";
 

@@ -8,7 +8,8 @@ import java.io.IOException;
  A command that clears the history file.
  */
 public class ClearHistoryCommand implements Command {
-    public static String info = "clear_history command:\n" +
+    public static String name = "clear_history";
+    public static String info = name + " command:\n" +
             "   This command is addictional, if u want to clear history manually and now, it will clear it\n";
     private String history = "";
     public ClearHistoryCommand(String history) {

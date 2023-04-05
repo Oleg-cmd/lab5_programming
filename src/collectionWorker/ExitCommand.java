@@ -5,7 +5,8 @@ package collectionWorker;
  */
 
 public class ExitCommand implements Command {
-    public static String info = "exit command:\n" +
+    public static String name = "exit";
+    public static String info = name + " command:\n" +
             "   This command will exit from program (no-autosave)\n";
     private final String history;
     /**

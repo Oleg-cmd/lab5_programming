@@ -13,7 +13,8 @@ import java.io.InputStreamReader;
  The syntax for using this command is: "filter_by_name nameThatIWantToFind"
  */
 public class FilterByNameCommand implements Command {
-    public static String info = "filter_by_name command:\n" +
+    public static String name = "filter_by_name";
+    public static String info = name + " command:\n" +
             "   This command will find all models, that name is the same that u entered\n" +
             "   Syntax:\n" +
             "       filter_by_name nameThatIWantToFind\n";

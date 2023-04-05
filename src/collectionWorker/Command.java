@@ -3,17 +3,14 @@ package collectionWorker;
 import fileManager.CollectionManager;
 import fileManager.XmlToJava;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  The Command interface represents a command that can be executed by the application.
  */
-public interface Command {
+public interface Command extends Serializable {
     CollectionManager collectionManager = new CollectionManager();
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));

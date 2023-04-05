@@ -19,7 +19,8 @@ public class AddCommand implements Command {
      * A string containing information about how to use this command.
      */
 
-    public static String info = "add command:\n" +
+    public static String name = "add";
+    public static String info = name + " command:\n" +
             "   This command can add elem\n" +
             "   Syntax:\n" +
             "       add\n" +

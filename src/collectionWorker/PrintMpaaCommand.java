@@ -11,7 +11,8 @@ import java.util.List;
  NC_17 > R > PG_13 > PG
  */
 public class PrintMpaaCommand implements Command {
-    public static String info = "print_mpaa command:\n" +
+    public static String name = "print_mpaa";
+    public static String info = name + " command:\n" +
             "   This command will print to console collection in order of mpaa rating\n" +
             "   note: NC_17 > R > PG_13 > PG \n";
 

@@ -3,6 +3,7 @@ package helpers;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+// a variant why only 1 file or 2 files are not found (some ways)
 
 public class CreateNew {
     public static void Create(){

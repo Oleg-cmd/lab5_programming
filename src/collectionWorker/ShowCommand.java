@@ -11,7 +11,8 @@ import java.util.HashSet;
  */
 
 public class ShowCommand implements Command {
-    public static String info = "show command:\n" +
+    public static String name = "show";
+    public static String info = name + " command:\n" +
             "   This command will show u all collection in string format\n";
 
     /**

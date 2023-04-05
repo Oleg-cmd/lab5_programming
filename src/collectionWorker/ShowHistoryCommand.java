@@ -11,7 +11,8 @@ import java.util.Deque;
  interface.
  */
 public class ShowHistoryCommand implements Command {
-    public static String info = "history command:\n" +
+    public static String name = "history";
+    public static String info = name + " command:\n" +
             "   This command will print to console 10 last commands that u entered to console\n" +
             "   note: commands will be without args\n";
     private static final int NUM_LINES_TO_SHOW = 10;
